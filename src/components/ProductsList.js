@@ -27,7 +27,7 @@ const ProductsList = (heading, description, intro) => (
   </Fragment>
 )
 
-IndexPageTemplate.propTypes = {
+ProductsList.propTypes = {
   heading: PropTypes.any,
   description: PropTypes.any,
   intro: PropTypes.any
