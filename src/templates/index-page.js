@@ -2,29 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import MainHeader from '../components/main/MainHeader'
-import MainBody from '../components/main/MainBody'
+import Main from '../components/main/Main'
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return ( 
     <Layout>
-      <MainHeader
-        image={frontmatter.image}
-        title={frontmatter.title}
-        subheading={frontmatter.subheading}
-      />
-      <MainBody
-        heading={frontmatter.heading}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
-        mainpitch={frontmatter.mainpitch}
-        pitch={frontmatter.pitch}
-        productsList={frontmatter.productsList}
-        subheader={frontmatter.subheader}
-        blogList={frontmatter.blogList}
-      />
+      <Main frontmatter={frontmatter} />
     </Layout>
   )
 }
