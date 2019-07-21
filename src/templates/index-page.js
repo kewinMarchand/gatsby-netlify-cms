@@ -14,6 +14,7 @@ export const IndexPageTemplate = ({
   mainpitch,
   description,
   intro,
+  blogList
 }) => (
   <div>
     <div
@@ -22,8 +23,8 @@ export const IndexPageTemplate = ({
         backgroundImage: `url(${
           !!image.childImageSharp ? image.childImageSharp.fluid.src : image
         })`,
-        backgroundPosition: `top left`,
-        backgroundAttachment: `fixed`,
+        backgroundPosition: `center`,
+        backgroundAttachment: `fixed`
       }}
     >
       <div
@@ -32,19 +33,16 @@ export const IndexPageTemplate = ({
           height: '150px',
           lineHeight: '1',
           justifyContent: 'space-around',
-          alignItems: 'left',
+          alignItems: 'center',
           flexDirection: 'column',
         }}
       >
         <h1
           className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
           style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
             color: 'white',
             lineHeight: '1',
-            padding: '0.25em',
+            padding: '0.25rem',
           }}
         >
           {title}
@@ -52,12 +50,9 @@ export const IndexPageTemplate = ({
         <h3
           className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
           style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
             color: 'white',
             lineHeight: '1',
-            padding: '0.25em',
+            padding: '0.25rem',
           }}
         >
           {subheading}
@@ -94,6 +89,7 @@ export const IndexPageTemplate = ({
                     </Link>
                   </div>
                 </div>
+                {blogList &&
                 <div className="column is-12">
                   <h3 className="has-text-weight-semibold is-size-2">
                     Latest stories
@@ -105,6 +101,7 @@ export const IndexPageTemplate = ({
                     </Link>
                   </div>
                 </div>
+                }
               </div>
             </div>
           </div>
@@ -124,6 +121,7 @@ IndexPageTemplate.propTypes = {
   intro: PropTypes.shape({
     blurbs: PropTypes.array,
   }),
+  blogList: PropTypes.boolean.isRequired
 }
 
 const IndexPage = ({ data }) => {
@@ -139,6 +137,7 @@ const IndexPage = ({ data }) => {
         mainpitch={frontmatter.mainpitch}
         description={frontmatter.description}
         intro={frontmatter.intro}
+        blogList={frontmatter.blogList}
       />
     </Layout>
   )
@@ -187,6 +186,7 @@ export const pageQuery = graphql`
           heading
           description
         }
+        blogList
       }
     }
   }

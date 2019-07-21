@@ -11,36 +11,35 @@ class BlogRoll extends React.Component {
     return (
       <div className="columns is-multiline">
         {posts &&
-          posts.map(({ node: post }) => (
+          posts.map(({ node: post }) => {
+            const {featuredpost, featuredimage, title, date} = post.frontmatter,
+              {slug} = post.fields
+              console.log(date)
+          return (
             <div className="is-parent column is-6" key={post.id}>
               <article
                 className={`blog-list-item tile is-child box notification ${
-                  post.frontmatter.featuredpost ? 'is-featured' : ''
+                  featuredpost ? 'is-featured' : ''
                 }`}
               >
                 <header>
-                  {post.frontmatter.featuredimage ? (
+                  {featuredimage ? (
                     <div className="featured-thumbnail">
                       <PreviewCompatibleImage
                         imageInfo={{
-                          image: post.frontmatter.featuredimage,
-                          alt: `featured image thumbnail for post ${
-                            post.title
-                          }`,
+                          image: featuredimage,
+                          alt: `featured image thumbnail for post ${post.title}`
                         }}
                       />
                     </div>
                   ) : null}
                   <p className="post-meta">
-                    <Link
-                      className="title has-text-primary is-size-4"
-                      to={post.fields.slug}
-                    >
-                      {post.frontmatter.title}
+                    <Link className="title has-text-primary is-size-4" to={slug}>
+                      {title}
                     </Link>
                     <span> &bull; </span>
                     <span className="subtitle is-size-5 is-block">
-                      {post.frontmatter.date}
+                      Le {date}
                     </span>
                   </p>
                 </header>
@@ -48,13 +47,13 @@ class BlogRoll extends React.Component {
                   {post.excerpt}
                   <br />
                   <br />
-                  <Link className="button" to={post.fields.slug}>
-                    Keep Reading →
+                  <Link className="button" to={slug}>
+                    Lire la suite →
                   </Link>
                 </p>
               </article>
             </div>
-          ))}
+          )})}
       </div>
     )
   }
@@ -86,7 +85,7 @@ export default () => (
               frontmatter {
                 title
                 templateKey
-                date(formatString: "MMMM DD, YYYY")
+                date(formatString: "DD MMMM YYYY à HH:MM", locale: "fr-FR")
                 featuredpost
                 featuredimage {
                   childImageSharp {
