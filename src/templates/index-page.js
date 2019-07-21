@@ -18,7 +18,7 @@ export const IndexPageTemplate = ({
   productsList,
   blogList
 }) => (
-  <div>
+  <Layout>
     <MainHeader
       image={image}
       title={title}
@@ -45,7 +45,7 @@ export const IndexPageTemplate = ({
         </div>
       </div>
     </section>
-  </div>
+  </Layout>
 )
 
 IndexPageTemplate.propTypes = {
@@ -65,20 +65,18 @@ IndexPageTemplate.propTypes = {
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
-  return (
-    <Layout>
-      <IndexPageTemplate
-        image={frontmatter.image}
-        title={frontmatter.title}
-        heading={frontmatter.heading}
-        subheading={frontmatter.subheading}
-        mainpitch={frontmatter.mainpitch}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
-        productsList={frontmatter.productsList}
-        blogList={frontmatter.blogList}
-      />
-    </Layout>
+  return ( 
+    <IndexPageTemplate
+      image={frontmatter.image}
+      title={frontmatter.title}
+      heading={frontmatter.heading}
+      subheading={frontmatter.subheading}
+      mainpitch={frontmatter.mainpitch}
+      description={frontmatter.description}
+      intro={frontmatter.intro}
+      productsList={frontmatter.productsList}
+      blogList={frontmatter.blogList}
+    />
   )
 }
 

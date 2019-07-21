@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import BlogRoll from '../components/BlogRoll'
+import BlogRoll from './BlogRoll'
 import {Button} from '@material-ui/core'
 
 const BlogList = () => (

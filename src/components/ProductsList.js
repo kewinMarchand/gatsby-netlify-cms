@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import Features from '../components/Features'
+import Features from './Features'
 import {Button} from '@material-ui/core'
 
 const ProductsList = (heading, description, intro) => (
