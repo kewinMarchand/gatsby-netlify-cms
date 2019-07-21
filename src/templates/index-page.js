@@ -75,7 +75,7 @@ export const IndexPageTemplate = ({
                   </div>
                 </div>
                 {productsList && 
-                <>
+                <React.Fragment>
                   <div className="columns">
                     <div className="column is-12">
                       <h3 className="has-text-weight-semibold is-size-2">
@@ -92,7 +92,7 @@ export const IndexPageTemplate = ({
                       </Link>
                     </div>
                   </div>
-                <>
+                </React.Fragment>
                 }
                 {blogList &&
                   <div className="column is-12">
@@ -193,8 +193,8 @@ export const pageQuery = graphql`
           heading
           description
         }
-        blogList,
-        productsList
+        productsList,
+        blogList
       }
     }
   }
