@@ -1,16 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export const MainHeader = ({
-  image,
-  title,
-  subheading
-}) => (
+export const MainHeader = (props) => (
   <div
     className="full-width-image margin-top-0"
     style={{
       backgroundImage: `url(${
-        !!image.childImageSharp ? image.childImageSharp.fluid.src : image
+        !!props.image.childImageSharp ? props.image.childImageSharp.fluid.src : props.image
       })`,
       backgroundPosition: `center`,
       backgroundAttachment: `fixed`
@@ -34,7 +30,7 @@ export const MainHeader = ({
           padding: '0.25rem',
         }}
       >
-        {title}
+        {props.title}
       </h1>
       <h3
         className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
@@ -44,7 +40,7 @@ export const MainHeader = ({
           padding: '0.25rem',
         }}
       >
-        {subheading}
+        {props.subheading}
       </h3>
     </div>
   </div>
@@ -53,7 +49,7 @@ export const MainHeader = ({
 MainHeader.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
-  subheading: PropTypes.string
+  subheading: PropTypes.string,
 }
 
 export default MainHeader

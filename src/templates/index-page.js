@@ -2,81 +2,28 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import MainHeader from '../components/MainHeader'
-import MainPitch from '../components/MainPitch'
-import ProductsList from '../components/ProductsList'
-import BlogList from '../components/BlogList'
-
-export const IndexPageTemplate = ({
-  image,
-  title,
-  heading,
-  subheading,
-  mainpitch,
-  description,
-  intro,
-  productsList,
-  blogList
-}) => (
-  <Layout>
-    <MainHeader
-      image={image}
-      title={title}
-      subheading={subheading}
-    />
-    <section className="section section--gradient">
-      <div className="container">
-        <div className="section">
-          <div className="columns">
-            <div className="column is-10 is-offset-1">
-              <div className="content">
-                <MainPitch mainpitch={mainpitch}/>
-                {productsList && 
-                  <ProductsList 
-                    heading={heading}
-                    description={description}
-                    intro={intro}
-                  />
-                }
-                {blogList && <BlogList/>}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </Layout>
-)
-
-IndexPageTemplate.propTypes = {
-  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  title: PropTypes.string,
-  heading: PropTypes.string,
-  subheading: PropTypes.string,
-  mainpitch: PropTypes.object,
-  description: PropTypes.string,
-  intro: PropTypes.shape({
-    blurbs: PropTypes.array,
-  }),
-  productsList: PropTypes.bool.isRequired,
-  blogList: PropTypes.bool.isRequired
-}
+import MainHeader from '../components/Main/MainHeader'
+import MainBody from '../components/Main/MainBody'
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return ( 
-    <IndexPageTemplate
-      image={frontmatter.image}
-      title={frontmatter.title}
-      heading={frontmatter.heading}
-      subheading={frontmatter.subheading}
-      mainpitch={frontmatter.mainpitch}
-      description={frontmatter.description}
-      intro={frontmatter.intro}
-      productsList={frontmatter.productsList}
-      blogList={frontmatter.blogList}
-    />
+    <Layout>
+      <MainHeader
+        image={frontmatter.image}
+        title={frontmatter.title}
+        subheading={frontmatter.subheading}
+      />
+      <MainBody
+        heading={frontmatter.heading}
+        description={frontmatter.description}
+        intro={frontmatter.intro}
+        mainpitch={frontmatter.mainpitch}
+        productsList={frontmatter.productsList}
+        blogList={frontmatter.blogList}
+      />
+    </Layout>
   )
 }
 
