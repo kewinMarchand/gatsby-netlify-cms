@@ -5,27 +5,20 @@ import MainSubheader from './MainSubheader'
 import MainProductsList from './MainProductsList'
 import MainBlogList from './MainBlogList'
 
-export const MainBody = ({
-  mainpitch,
-  heading,
-  description,
-  intro,
-  productsList,
-  blogList
-}) => (
+export const MainBody = (props) => (
     <section className="section section--gradient">
       <div className="container">
         <div className="section">
           <div className="columns">
             <div className="column is-10 is-offset-1">
               <div className="content">
-                <MainPitch mainpitch={mainpitch} />
+                <MainPitch mainpitch={props.mainpitch} />
                 <MainSubheader 
-                  heading={heading}
-                  description={description}
+                  heading={props.heading}
+                  description={props.description}
                 />
-                {productsList && <MainProductsList intro={intro} />}
-                {blogList && <MainBlogList />}
+                {props.productsList && <MainProductsList intro={props.intro} />}
+                {props.blogList && <MainBlogList />}
               </div>
             </div>
           </div>
