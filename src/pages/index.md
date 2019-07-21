@@ -67,7 +67,7 @@ main:
   image3:
     alt: Coffee beans
     image: /img/products-grid1.jpg
-blogList: false
 productsList: false
+blogList: false
 ---
 
