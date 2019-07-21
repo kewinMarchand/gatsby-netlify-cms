@@ -14,7 +14,6 @@ class BlogRoll extends React.Component {
           posts.map(({ node: post }) => {
             const {featuredpost, featuredimage, title, date} = post.frontmatter,
               {slug} = post.fields
-              console.log(date)
           return (
             <div className="is-parent column is-6" key={post.id}>
               <article
