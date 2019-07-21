@@ -14,7 +14,8 @@ export const IndexPageTemplate = ({
   mainpitch,
   description,
   intro,
-  blogList
+  blogList,
+  productsList
 }) => (
   <div>
     <div
@@ -73,34 +74,36 @@ export const IndexPageTemplate = ({
                     <h3 className="subtitle">{mainpitch.description}</h3>
                   </div>
                 </div>
-                <div className="columns">
+                {productsList && 
+                  <div className="columns">
+                    <div className="column is-12">
+                      <h3 className="has-text-weight-semibold is-size-2">
+                        {heading}
+                      </h3>
+                      <p>{description}</p>
+                    </div>
+                  </div>
+                  <Features gridItems={intro.blurbs} />
+                  <div className="columns">
+                    <div className="column is-12 has-text-centered">
+                      <Link className="btn" to="/products">
+                        Voir tous les produits
+                      </Link>
+                    </div>
+                  </div>
+                }
+                {blogList &&
                   <div className="column is-12">
                     <h3 className="has-text-weight-semibold is-size-2">
-                      {heading}
+                      Derniers articles
                     </h3>
-                    <p>{description}</p>
+                    <BlogRoll />
+                    <div className="column is-12 has-text-centered">
+                      <Link className="btn" to="/blog">
+                        Voir tout
+                      </Link>
+                    </div>
                   </div>
-                </div>
-                <Features gridItems={intro.blurbs} />
-                <div className="columns">
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/products">
-                      Voir tous les produits
-                    </Link>
-                  </div>
-                </div>
-                {blogList &&
-                <div className="column is-12">
-                  <h3 className="has-text-weight-semibold is-size-2">
-                    Derniers articles
-                  </h3>
-                  <BlogRoll />
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/blog">
-                      Voir tout
-                    </Link>
-                  </div>
-                </div>
                 }
               </div>
             </div>
@@ -121,7 +124,8 @@ IndexPageTemplate.propTypes = {
   intro: PropTypes.shape({
     blurbs: PropTypes.array,
   }),
-  blogList: PropTypes.any.isRequired
+  productsList: PropTypes.bool.isRequired,
+  blogList: PropTypes.bool.isRequired
 }
 
 const IndexPage = ({ data }) => {
@@ -137,6 +141,7 @@ const IndexPage = ({ data }) => {
         mainpitch={frontmatter.mainpitch}
         description={frontmatter.description}
         intro={frontmatter.intro}
+        productsList={frontmatter.productsList}
         blogList={frontmatter.blogList}
       />
     </Layout>
@@ -186,7 +191,8 @@ export const pageQuery = graphql`
           heading
           description
         }
-        blogList
+        blogList,
+        productsList
       }
     }
   }
