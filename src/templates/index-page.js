@@ -75,6 +75,7 @@ export const IndexPageTemplate = ({
                   </div>
                 </div>
                 {productsList && 
+                <>
                   <div className="columns">
                     <div className="column is-12">
                       <h3 className="has-text-weight-semibold is-size-2">
@@ -91,6 +92,7 @@ export const IndexPageTemplate = ({
                       </Link>
                     </div>
                   </div>
+                <>
                 }
                 {blogList &&
                   <div className="column is-12">
