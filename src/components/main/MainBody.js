@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import MainPitch from './MainPitch'
-import MainSubheader from './MainSubheader'
-import MainProductsList from './MainProductsList'
-import MainBlogList from './MainBlogList'
+import MainPitch from './sections/MainPitch'
+import MainProductsList from './sections/MainProductsList'
+import MainSubheader from './sections/MainSubheader'
+import MainBlogList from './sections/MainBlogList'
 import { Grid } from '@material-ui/core'
 
 export const MainBody = (props) => (

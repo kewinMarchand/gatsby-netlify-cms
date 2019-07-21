@@ -5,10 +5,10 @@ import { Grid, Typography } from '@material-ui/core'
 const MainSubheader = (props) => (
   <Grid container>
     <Grid item xs={12}>
-      <Typography variant={'h3'}>
+      <Typography variant={'h3'} gutterBottom>
         {props.heading}
       </Typography>
-      <Typography>
+      <Typography gutterBottom>
         {props.description}
       </Typography>
     </Grid>

@@ -9,7 +9,8 @@ export const MainHeader = (props) => (
         !!props.image.childImageSharp ? props.image.childImageSharp.fluid.src : props.image
       })`,
       backgroundPosition: `center`,
-      backgroundAttachment: `fixed`
+      backgroundAttachment: `fixed`,
+      marginBottom: '3rem',
     }}
   >
     <div
@@ -32,7 +33,7 @@ export const MainHeader = (props) => (
       >
         {props.title}
       </h1>
-      <h3
+      <h2
         className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
         style={{
           color: 'white',
@@ -41,7 +42,7 @@ export const MainHeader = (props) => (
         }}
       >
         {props.subheading}
-      </h3>
+      </h2>
     </div>
   </div>
 )

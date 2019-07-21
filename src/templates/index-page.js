@@ -72,10 +72,10 @@ export const pageQuery = graphql`
           heading
           description
         }
-        productsList,
-        blogList,
         pitch,
-        subheader
+        productsList,
+        subheader,
+        blogList
       }
     }
   }

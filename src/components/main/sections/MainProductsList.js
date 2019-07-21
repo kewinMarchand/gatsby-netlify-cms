@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
-import Features from '../Features'
-import LinkButton from '../LinkButton'
+import Features from '../../Features'
+import LinkButton from '../../LinkButton'
 
 const MainProductsList = (props) => (
   <Fragment>
