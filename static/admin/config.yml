@@ -5,6 +5,11 @@ backend:
 media_folder: static/img
 public_folder: /img
 
+site_url: https://elated-volhard-a85ce9.netlify.com/
+display_url: https://elated-volhard-a85ce9.netlify.com/
+
+logo_url: https://elated-volhard-a85ce9.netlify.com/img/avatar-kewin.png
+
 collections:
   - name: "blog"
     label: "Blog"
@@ -16,7 +21,7 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
-      - {label: "Featured Post", name: "featuredpost", widget: "boolean"}
+      - {label: "Featured Post", name: "featuredpost", widget: "boolean", default: false, required: false}
       - {label: "Featured Image", name: "featuredimage", widget: image}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
@@ -37,10 +42,10 @@ collections:
           - {label: Description, name: description, widget: string}
           - {label: Intro, name: intro, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Blurbs, name: blurbs, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}]}
           - {label: Main, name: main, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Image1, name: image1, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image2, name: image2, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image3, name: image3, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}]}
-          - {label: "Show Pitch", name: "pitch", widget: "boolean"}
-          - {label: "Show Products List", name: "productsList", widget: "boolean"}
-          - {label: "Show Subheader", name: "subheader", widget: "boolean"}
-          - {label: "Show Blog List", name: "blogList", widget: "boolean"}
+          - {label: "Show Pitch", name: "pitch", widget: "boolean", default: true, required: false}
+          - {label: "Show Products List", name: "productsList", widget: "boolean", default: true, required: false}
+          - {label: "Show Subheader", name: "subheader", widget: "boolean", default: true, required: false}
+          - {label: "Show Blog List", name: "blogList", widget: "boolean", default: true, required: false}
       - file: "src/pages/about/index.md"
         label: "About"
         name: "about"
