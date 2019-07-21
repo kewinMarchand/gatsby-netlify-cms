@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import MainHeader from '../components/Main/MainHeader'
-import MainBody from '../components/Main/MainBody'
+import MainHeader from '../components/main/MainHeader'
+import MainBody from '../components/main/MainBody'
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
@@ -20,7 +20,9 @@ const IndexPage = ({ data }) => {
         description={frontmatter.description}
         intro={frontmatter.intro}
         mainpitch={frontmatter.mainpitch}
+        pitch={frontmatter.pitch}
         productsList={frontmatter.productsList}
+        subheader={frontmatter.subheader}
         blogList={frontmatter.blogList}
       />
     </Layout>
@@ -71,7 +73,9 @@ export const pageQuery = graphql`
           description
         }
         productsList,
-        blogList
+        blogList,
+        pitch,
+        subheader
       }
     }
   }

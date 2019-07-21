@@ -4,27 +4,32 @@ import MainPitch from './MainPitch'
 import MainSubheader from './MainSubheader'
 import MainProductsList from './MainProductsList'
 import MainBlogList from './MainBlogList'
+import { Grid } from '@material-ui/core'
 
 export const MainBody = (props) => (
-    <section className="section section--gradient">
-      <div className="container">
-        <div className="section">
-          <div className="columns">
-            <div className="column is-10 is-offset-1">
-              <div className="content">
-                <MainPitch mainpitch={props.mainpitch} />
-                <MainSubheader 
-                  heading={props.heading}
-                  description={props.description}
-                />
-                {props.productsList && <MainProductsList intro={props.intro} />}
-                {props.blogList && <MainBlogList />}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <Grid container justify={'center'}>
+    <Grid item xs={10}>
+      {props.pitch &&
+        <MainPitch
+          mainpitch={props.mainpitch} 
+        />
+      }
+      {props.productsList && 
+        <MainProductsList 
+          intro={props.intro} 
+        />
+      }
+      {props.subheader &&
+        <MainSubheader 
+          heading={props.heading}
+          description={props.description}
+        />
+      }
+      {props.blogList && 
+        <MainBlogList />
+      }
+    </Grid>
+  </Grid>  
 )
 
 MainBody.propTypes = {
@@ -34,8 +39,10 @@ MainBody.propTypes = {
   intro: PropTypes.shape({
     blurbs: PropTypes.array,
   }),
+  pitch: PropTypes.bool.isRequired,
   productsList: PropTypes.bool.isRequired,
-  blogList: PropTypes.bool.isRequired
+  blogList: PropTypes.bool.isRequired,
+  subheader: PropTypes.bool.isRequired
 }
 
 export default MainBody
