@@ -85,51 +85,58 @@ export default {
         useNextVariants: true,
         h1: {
             fontSize: '5rem',
-            fontWeight: 400,
-            lineHeight: '6.3rem',
+            fontWeight: 700,
+            lineHeight: '6rem',
         },
         h2: {
             fontSize: '3rem',
-            fontWeight: 300,
+            fontWeight: 700,
             lineHeight: '3.75rem',
         },
         h3: {
             fontSize: '2.25rem',
-            fontWeight: 300,
-            lineHeight: '3rem',
+            fontWeight: 500,
+            lineHeight: '2.75rem',
         },
         h4: {
             fontSize: '1.5rem',
-            fontWeight: 300,
-            lineHeight: '1.5rem',
+            fontWeight: 500,
+            lineHeight: '2rem',
         },
         h5: {
             fontSize: '1.375rem',
-            fontWeight: 700,
-            lineHeight: '1.14286rem',
+            fontWeight: 400,
+            lineHeight: '1.875rem',
         },
         h6: {
             fontSize: '1.25rem',
-            fontWeight: 300,
-            lineHeight: '25px',
+            fontWeight: 400,
+            lineHeight: '1.75rem',
         },
         subtitle1: {
-            fontSize: '0.875rem',
+            fontSize: '1rem',
             fontWeight: 700,
+            lineHeight: '1.50rem',
+        },
+        subtitle2: {
+            fontSize: '0.875rem',
+            fontWeight: 500,
+            lineHeight: '1.25rem',
         },
         body1: {
-            fontWeight: 500,
             fontSize: '1rem',
-            lineHeight: "1.25rem",
+            fontWeight: 400,
+            lineHeight: "1.50rem",
         },
         body2: {
             fontSize: '0.875rem',
             fontWeight: 300,
-            lineHeight: "1.50rem",
+            lineHeight: "1.25rem",
         },
         caption: {
-            color: palette.textSecondary,
             fontSize: '0.75rem',
+            fontWeight: 300,
+            lineHeight: "1rem",
         },
         button: {
             fontSize: '0.875rem',
@@ -139,7 +146,16 @@ export default {
     overrides: {
         MuiTypography: {
             gutterBottom: {
-                marginBottom: 200
+                marginBottom: 16
+            }
+        },
+        MuiGrid: {
+            'spacing-xs-8': {
+                margin: -16,
+                width: 'calc(100% + 32px)',
+                '& > .MuiGrid-item': {
+                    padding: 16
+                }
             }
         }
     },

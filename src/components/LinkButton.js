@@ -1,20 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import { Button } from '@material-ui/core'
+import { Button, Grid } from '@material-ui/core'
 
 const LinkButton = (props) => {
   const {href, text} = props
   return (
-    <div className="columns">
-      <div className="column is-12 has-text-centered">
-        <Link to={href}>
+    <Grid container justify={'center'}>
+      <Grid item>
+        <Link to={href} style={{textDecoration: 'none'}}>
           <Button variant={'outlined'} color={'primary'}>      
               {text}     
           </Button>
         </Link>
-      </div>
-    </div>
+      </Grid>
+    </Grid>
   )
 }
 

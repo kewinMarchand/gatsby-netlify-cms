@@ -1,13 +1,16 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import Features from '../../Features'
 import LinkButton from '../../LinkButton'
+import { Grid } from '@material-ui/core'
 
 const MainProductsList = (props) => (
-  <Fragment>
-    <Features gridItems={props.intro.blurbs} />
-    <LinkButton href={"/products"} text={"Voir tous les produits" }/>
-  </Fragment>
+  <Grid container style={{marginBottom: 40}}>
+    <Grid item xs={12} style={{marginBottom: 40}}>
+      <Features gridItems={props.intro.blurbs} />
+      <LinkButton href={"/products"} text={"Voir tous les produits" }/>
+    </Grid>
+  </Grid>
 )
 
 MainProductsList.propTypes = {

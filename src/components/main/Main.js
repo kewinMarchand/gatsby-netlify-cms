@@ -1,11 +1,11 @@
-import React, {Fragment} from 'react'
+import React, {StrictMode} from 'react'
 import PropTypes from 'prop-types'
 import MainHeader from './MainHeader'
 import MainBody from './MainBody'
 
 const Main = (props) => {
   return ( 
-    <Fragment>
+    <StrictMode>
       <MainHeader
         image={props.frontmatter.image}
         title={props.frontmatter.title}
@@ -21,7 +21,7 @@ const Main = (props) => {
         subheader={props.frontmatter.subheader}
         blogList={props.frontmatter.blogList}
       />
-    </Fragment>
+    </StrictMode>
   )
 }
 
