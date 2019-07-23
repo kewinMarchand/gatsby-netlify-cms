@@ -35,7 +35,7 @@ class BlogCard extends React.Component {
         >
           <CardContent style={{height: '100%'}}>
             <Grid container direction={'column'} style={{height: '100%'}}>
-              <Grid container component={'header'} style={{marginBottom: 8}}>
+              <Grid container component={'header'} alignItems={'center'} style={{marginBottom: 8}}>
                 {featuredimage &&
                   <Grid item xs={4} component={'figure'} style={{paddingRight: 16}}>
                     <PreviewCompatibleImage
@@ -46,7 +46,7 @@ class BlogCard extends React.Component {
                     />
                   </Grid>
                 }
-                <Grid item xs={8}>
+                <Grid item xs={featuredimage ? 8 : 12}>
                   <Link to={slug}>
                     <Typography variant={'h5'} gutterBottom color={'secondary'}>
                       {title}
@@ -58,13 +58,13 @@ class BlogCard extends React.Component {
                 </Grid>
               </Grid>
               <Grid container direction={'column'} alignItems={'flex-end'} wrap={'nowrap'} style={{flexGrow: 1}}>
-                <Grid item xs={12} style={{flexGrow: 1}}>
+                <Grid item xs={12} style={{flexGrow: 1, marginBottom: 16}}>
                   <Typography variant={'body2'} gutterBottom>
                     {post.excerpt}
                   </Typography>
                 </Grid>
                 <Grid item>
-                  <LinkButton href={slug} text={"Lire la suite →"} />
+                  <LinkButton href={slug} text={"Lire la suite"} />
                 </Grid>
               </Grid>
             </Grid>
